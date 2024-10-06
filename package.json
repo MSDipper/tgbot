@@ -1,0 +1,29 @@
+{
+  "name": "trbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node ./dist/app.js",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "msd",
+  "license": "ISC",
+  "dependencies": {
+    "@tsconfig/recommended": "^1.0.7",
+    "@types/config": "^3.3.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mongoose": "^8.7.0",
+    "node-telegram-bot-api": "^0.66.0",
+    "telegraf": "^4.16.3",
+    "tsconfig": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node-telegram-bot-api": "^0.64.7",
+    "axios": "^1.7.7",
+    "typescript": "^5.6.2"
+  }
+}
