@@ -12,13 +12,15 @@ export const weatherReport = (bot: TelegramBot) => {
         const weatherData = await weatherReportApi(city);
         const weatherDescription = weatherData.weather[0].description;
         const temperature = weatherData.main.temp;
+        const humidity = weatherData.main.humidity;
 
-        const response = `Текущая погода в ${city}: ${weatherDescription}, температура: ${temperature}°C`;
+        const response = `Текущая погода в ${city}: ${weatherDescription}, температура: ${temperature}°C, уровень влажности: ${humidity}%`;
         bot.sendMessage(chatId, response);
-      } catch (err) {
-        const errorMessage =
-          err instanceof Error ? err.message : "Неизвестная ошибка";
-        bot.sendMessage(chatId, `Ошибка: ${errorMessage}`);
+      } catch {
+        bot.sendMessage(
+          chatId,
+          `Город не найдет проверьте корректно ли вы ввели название города или есть ли опечатка в названии)`
+        );
       }
     });
   });
