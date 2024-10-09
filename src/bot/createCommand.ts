@@ -15,6 +15,7 @@ export const createCommand = (bot: TelegramBot) => {
       const title = msg.text;
       chatStates[chatId].title = title;
 
+      function askPrice() {
       bot.sendMessage(chatId, "Введите цену продукта:");
       bot.once("message", async (msg: Message) => {
         if (chatStates[chatId]?.currentCommand !== "/create") return;
@@ -27,6 +28,7 @@ export const createCommand = (bot: TelegramBot) => {
               chatId,
               "Некорректное значение цены, введите только числовые значения."
             );
+            askPrice();
             return;
           }
 
@@ -41,7 +43,8 @@ export const createCommand = (bot: TelegramBot) => {
             bot.sendMessage(chatId, `Произошла ошибка: ${err.message}`);
           }
         }
-      });
+      })}
+      askPrice();
     });
   });
 };
