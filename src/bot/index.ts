@@ -8,6 +8,7 @@ import { helpCommand } from "./help";
 import { startCommand } from "./startCommand";
 import { clearStateClearOnNewCommand } from "../middleware";
 import { weatherReport } from "./weather";
+import { deletedProductCommand } from "./deleteProduct";
 
 const rootDir = path.resolve(__dirname, "../../");
 dotenv.config({ path: path.join(rootDir, ".env") });
@@ -27,4 +28,5 @@ startCommand(bot);
 createCommand(bot);
 getAllProductsCommand(bot);
 weatherReport(bot);
+deletedProductCommand(bot);
 helpCommand(bot);
